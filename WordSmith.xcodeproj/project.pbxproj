@@ -56,9 +56,11 @@
 		379B48B824AC0411006A3191 /* WordSmith */ = {
 			isa = PBXGroup;
 			children = (
+				379B48CF24AC0440006A3191 /* Fonts */,
+				379B48CE24AC0431006A3191 /* Models */,
+				379B48CD24AC041F006A3191 /* Views */,
 				379B48B924AC0411006A3191 /* AppDelegate.swift */,
 				379B48BB24AC0411006A3191 /* SceneDelegate.swift */,
-				379B48BD24AC0411006A3191 /* ContentView.swift */,
 				379B48BF24AC0412006A3191 /* Assets.xcassets */,
 				379B48C424AC0412006A3191 /* LaunchScreen.storyboard */,
 				379B48C724AC0412006A3191 /* Info.plist */,
@@ -73,6 +75,28 @@
 				379B48C224AC0412006A3191 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		379B48CD24AC041F006A3191 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				379B48BD24AC0411006A3191 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		379B48CE24AC0431006A3191 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		379B48CF24AC0440006A3191 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
