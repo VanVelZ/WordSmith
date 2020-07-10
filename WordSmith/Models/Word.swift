@@ -8,7 +8,13 @@
 
 import Foundation
 
+//words should be reworked. much of their information is generated based on other instances of their structs via the Settings keeping the list of words
+//I think they should only hold data and not mutate themselves
+
+
+
 struct Word{
+    var id:Int = 0
     var Text:String?
     var Letters:[Character] {
         var letters:[Character] = []
@@ -25,6 +31,7 @@ struct Word{
         Text = word
         orientation = SetOrientation()
         coords = SetPosition()
+        
     }
     init(word:String, x:Int?, y:Int?, o:Orientation?){
         
@@ -36,48 +43,48 @@ struct Word{
             //StartingY = rand.Next(0, Settings.BoardY)
             //StartingX = rand.Next(0, Settings.BoardX - Wrd.Length)
             c.append((Int.random(in: 0..<Settings.X - Length), Int.random(in: 0..<Settings.Y)))
-            for i in 0..<Length{
+            for i in 0..<Length-1{
                 c.append((c[i].x + 1, c[i].y))
             }
         case .Right:
             //StartingY = rand.Next(0, Settings.BoardY - Wrd.Length)
             //StartingX = rand.Next(0, Settings.BoardX)
             c.append((Int.random(in: 0..<Settings.X), Int.random(in: 0..<Settings.Y - Length)))
-            for i in 0..<Length{
+            for i in 0..<Length-1{
                 c.append((c[i].x, c[i].y + 1))
             }
         case .Left:
             //StartingY = rand.Next(Wrd.Length, Settings.BoardY)
             //StartingX = rand.Next(0, Settings.BoardX)
             c.append((Int.random(in: 0..<Settings.X), Int.random(in: Length..<Settings.Y)))
-            for i in 0..<Length{
+            for i in 0..<Length-1{
                 c.append((c[i].x, c[i].y - 1))
             }
         case .Up:
             //StartingY = rand.Next(0, Settings.BoardY)
             //StartingX = rand.Next(Wrd.Length, Settings.BoardX - Wrd.Length)
             c.append((Int.random(in: Length..<Settings.X), Int.random(in: 0..<Settings.Y)))
-            for i in 0..<Length{
+            for i in 0..<Length-1{
                 c.append((c[i].x - 1, c[i].y))
             }
         case .UpRight:
             c.append((Int.random(in: Length..<Settings.X), Int.random(in: 0..<Settings.Y-Length)))
-            for i in 0..<Length{
+            for i in 0..<Length-1{
                 c.append((c[i].x - 1, c[i].y + 1))
             }
         case .UpLeft:
             c.append((Int.random(in: Length..<Settings.X), Int.random(in: Length..<Settings.Y)))
-            for i in 0..<Length{
+            for i in 0..<Length-1{
                 c.append((c[i].x - 1, c[i].y - 1))
             }
         case .DownRight:
             c.append((Int.random(in: 0..<Settings.X-Length), Int.random(in: 0..<Settings.Y - Length)))
-            for i in 0..<Length{
+            for i in 0..<Length-1{
                 c.append((c[i].x + 1, c[i].y + 1))
             }
         case .DownLeft:
             c.append((Int.random(in: 0..<Settings.X-Length), Int.random(in: Length..<Settings.Y)))
-            for i in 0..<Length{
+            for i in 0..<Length-1{
                 c.append((c[i].x + 1, c[i].y - 1))
             }
         case .none:
@@ -158,31 +165,39 @@ struct Word{
          }
      }
     
+    
+    
+    
     func areValidSpots()->Bool{
-        var count:Int = 0
-        for co in coords!{
-            for w in Settings.Words{
-                for wc in w.coords!{
-                    if co == wc && w.Letters[count-1] != Letters[count-1]{
-                        return false
-                    }
-                }
-            }
-            count+=1
-        }
-        return true
-    }
-    func areValidSpots(coos:[(Int, Int)])->Bool{
-           var count:Int = 0
-           for co in coos{
+           for co in coords!{
+            var i = 0
                for w in Settings.Words{
+                   var j = 0
                    for wc in w.coords!{
-                       if co == wc && w.Letters[count] != Letters[count]{
+                    if co == wc && Letters[i] != w.Letters[j]{
                            return false
                        }
+                    j+=1
                    }
                }
-               count+=1
+            i+=1
+           }
+           return true
+    }
+    func areValidSpots(coos:[(Int, Int)])->Bool{
+        
+           for co in coos{
+            var i = 0
+               for w in Settings.Words{
+                   var j = 0
+                   for wc in w.coords!{
+                    if co == wc && Letters[i] != w.Letters[j]{
+                           return false
+                       }
+                    j+=1
+                   }
+               }
+            i+=1
            }
            return true
        }

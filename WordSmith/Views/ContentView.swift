@@ -14,6 +14,9 @@ struct ContentView: View {
     var body: some View {
         VStack {
             WordGrid(wordsearch: wordsearch)
+            List(Settings.Words, id:\.id) { word in
+                Text(word.Text!)
+            }
         }
     }
 }
@@ -32,7 +35,7 @@ struct WordGrid: View {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10.0)
                                 .foregroundColor(.red)
-                                .frame(width: 20, height: 15, alignment: .center)
+                                .frame(width: 21, height: 15, alignment: .bottom)
                             
                             Text(String(self.wordsearch.Board[row][column]))
                                 .font(Font.custom("Courier New", size: 15.0))
