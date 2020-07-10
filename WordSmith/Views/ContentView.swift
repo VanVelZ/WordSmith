@@ -26,15 +26,15 @@ struct WordGrid: View {
     let wordsearch:WordSearch
     var body: some View {
         HStack {
-            ForEach(0..<wordsearch.X, id: \.self) { column in
+            ForEach(0..<Settings.X, id: \.self) { column in
                 VStack {
-                    ForEach(0..<self.wordsearch.Y, id: \.self){ row in
+                    ForEach(0..<Settings.Y, id: \.self){ row in
                         ZStack {
                             RoundedRectangle(cornerRadius: 10.0)
                                 .foregroundColor(.red)
                                 .frame(width: 20, height: 15, alignment: .center)
                             
-                            Text(self.wordsearch.Board[row][column])
+                            Text(String(self.wordsearch.Board[row][column]))
                                 .font(Font.custom("Courier New", size: 15.0))
                                 .fontWeight(.bold)
                                 .foregroundColor(Color.white)

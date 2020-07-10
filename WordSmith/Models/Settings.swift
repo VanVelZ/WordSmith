@@ -13,4 +13,5 @@ class Settings{
     static var Y:Int = 12
     static var Words:[Word] = []
     
+    
 }

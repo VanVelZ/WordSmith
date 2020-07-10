@@ -9,20 +9,19 @@
 import Foundation
 
 struct WordSearch{
-    
-    let X: Int = 12
-    let Y: Int  = 12
-    var Board: [[String]] = [[]]
+    var Board: [[Character]] = [[]]
     
     init(){
         SetupBoardArray()
+        SetupTempData()
+        AddWordsToBoard()
     }
     
     
     mutating func SetupBoardArray(){
         
         Board.removeAll()
-        var row:[String] = []
+        var row:[Character] = []
         for _ in 0..<Settings.X{
             row.removeAll()
             for _  in 0..<Settings.Y{
@@ -31,17 +30,22 @@ struct WordSearch{
             Board.append(row)
         }
     }
-    
-    
-    let chars = ["a","b","c","d","e","f","g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-    
-    func RandomLetterTemp() ->  String{
-        return chars[Int.random(in: 0...chars.count-1)]
+    mutating func AddWordsToBoard(){
+        
+        for word in Settings.Words{
+            var i = 0
+            for letter in word.Letters{
+                Board[word.coords![i].X][word.coords![i].Y] = letter
+                i+=1
+            }
+        }
     }
     
+    let chars:[Character] = ["a","b","c","d","e","f","g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     
-    
-    
+    func RandomLetterTemp() ->  Character{
+        return chars[Int.random(in: 0...chars.count-1)]
+    }
     var Display: String {
         var text:String = ""
         
@@ -55,5 +59,11 @@ struct WordSearch{
         
     }
     
+    func SetupTempData(){
+        Settings.Words.append(Word(word: "baby"))
+        Settings.Words.append(Word(word: "chalk"))
+        Settings.Words.append(Word(word: "taco"))
+        Settings.Words.append(Word(word: "little"))
+    }
 }
 
