@@ -9,7 +9,7 @@
 import Foundation
 
 struct WordSearch{
-    var Board: [[Character]] = [[]]
+    var Board: [[(Letter:Character, WordID:Int)]] = [[]]
     
     init(){
         SetupBoardArray()
@@ -21,11 +21,23 @@ struct WordSearch{
     mutating func SetupBoardArray(){
         
         Board.removeAll()
-        var row:[Character] = []
+        var row:[(Character,Int)] = []
         for _ in 0..<Settings.X{
             row.removeAll()
             for _  in 0..<Settings.Y{
-                row.append(RandomLetterTemp())
+                row.append((RandomLetterTemp(), 0))
+            }
+            Board.append(row)
+        }
+    }
+    mutating func SetupBoardArrayTest(){
+        
+        Board.removeAll()
+        var row:[(Character, Int)] = []
+        for _ in 0..<Settings.X{
+            row.removeAll()
+            for _  in 0..<Settings.Y{
+                row.append(("+", 0))
             }
             Board.append(row)
         }
@@ -35,7 +47,7 @@ struct WordSearch{
         for word in Settings.Words{
             var i = 0
             for letter in word.Letters{
-                Board[word.coords![i].X][word.coords![i].Y] = letter
+                Board[word.coords![i].X][word.coords![i].Y] = (letter, word.id)
                 i+=1
             }
         }
@@ -60,176 +72,19 @@ struct WordSearch{
     }
     
     func SetupTempData(){
-        Settings.Words.append(Word(word: "baby"))
-        Settings.Words.append(Word(word: "chalk"))
-        Settings.Words.append(Word(word: "taco"))
-        Settings.Words.append(Word(word: "little"))
+        Settings.Words.append(Word(word: "BABY"))
+        Settings.Words.append(Word(word: "CHALK"))
+        Settings.Words.append(Word(word: "TACO"))
+        Settings.Words.append(Word(word: "LITTLE"))
+        Settings.Words.append(Word(word: "STARVE"))
+        Settings.Words.append(Word(word: "GENIUS"))
+        Settings.Words.append(Word(word: "COCOA"))
+        Settings.Words.append(Word(word: "ARGUE"))
+        Settings.Words.append(Word(word: "LEFT"))
+        Settings.Words.append(Word(word: "FISH"))
+        Settings.Words.append(Word(word: "JUMP"))
+        Settings.Words.append(Word(word: "BACON"))
     }
     
-    func SetPosition()->[(Int, Int)]{
-        var c:[(x:Int, y:Int)] = []
-        switch orientation{
-        case .Down:
-            //StartingY = rand.Next(0, Settings.BoardY)
-            //StartingX = rand.Next(0, Settings.BoardX - Wrd.Length)
-            c.append((Int.random(in: 0..<Settings.X - Length), Int.random(in: 0..<Settings.Y)))
-            for i in 0..<Length-1{
-                c.append((c[i].x + 1, c[i].y))
-            }
-        case .Right:
-            //StartingY = rand.Next(0, Settings.BoardY - Wrd.Length)
-            //StartingX = rand.Next(0, Settings.BoardX)
-            c.append((Int.random(in: 0..<Settings.X), Int.random(in: 0..<Settings.Y - Length)))
-            for i in 0..<Length-1{
-                c.append((c[i].x, c[i].y + 1))
-            }
-        case .Left:
-            //StartingY = rand.Next(Wrd.Length, Settings.BoardY)
-            //StartingX = rand.Next(0, Settings.BoardX)
-            c.append((Int.random(in: 0..<Settings.X), Int.random(in: Length..<Settings.Y)))
-            for i in 0..<Length-1{
-                c.append((c[i].x, c[i].y - 1))
-            }
-        case .Up:
-            //StartingY = rand.Next(0, Settings.BoardY)
-            //StartingX = rand.Next(Wrd.Length, Settings.BoardX - Wrd.Length)
-            c.append((Int.random(in: Length..<Settings.X), Int.random(in: 0..<Settings.Y)))
-            for i in 0..<Length-1{
-                c.append((c[i].x - 1, c[i].y))
-            }
-        case .UpRight:
-            c.append((Int.random(in: Length..<Settings.X), Int.random(in: 0..<Settings.Y-Length)))
-            for i in 0..<Length-1{
-                c.append((c[i].x - 1, c[i].y + 1))
-            }
-        case .UpLeft:
-            c.append((Int.random(in: Length..<Settings.X), Int.random(in: Length..<Settings.Y)))
-            for i in 0..<Length-1{
-                c.append((c[i].x - 1, c[i].y - 1))
-            }
-        case .DownRight:
-            c.append((Int.random(in: 0..<Settings.X-Length), Int.random(in: 0..<Settings.Y - Length)))
-            for i in 0..<Length-1{
-                c.append((c[i].x + 1, c[i].y + 1))
-            }
-        case .DownLeft:
-            c.append((Int.random(in: 0..<Settings.X-Length), Int.random(in: Length..<Settings.Y)))
-            for i in 0..<Length-1{
-                c.append((c[i].x + 1, c[i].y - 1))
-            }
-        case .none:
-            return SetPosition()
-        }
-        if areValidSpots(coos: c){ return c}
-        else{return SetPosition()}
-        
-    }
-    func SetPosition(startingCoords:(Int,Int))->[(Int, Int)]{
-        var c:[(x:Int, y:Int)] = [startingCoords]
-        switch orientation{
-        case .Down:
-            for i in 1..<Length{
-                c.append((c[i].x + 1, c[i].y))
-            }
-        case .Right:
-            for i in 1..<Length{
-                c.append((c[i].x, c[i].y + 1))
-            }
-        case .Left:
-            for i in 1..<Length{
-                c.append((c[i].x, c[i].y - 1))
-            }
-        case .Up:
-            for i in 1..<Length{
-                c.append((c[i].x - 1, c[i].y))
-            }
-        case .UpRight:
-            for i in 1..<Length{
-                c.append((c[i].x - 1, c[i].y + 1))
-            }
-        case .UpLeft:
-            for i in 1..<Length{
-                c.append((c[i].x - 1, c[i].y - 1))
-            }
-        case .DownRight:
-            for i in 1..<Length{
-                c.append((c[i].x + 1, c[i].y + 1))
-            }
-        case .DownLeft:
-            for i in 1..<Length{
-                c.append((c[i].x + 1, c[i].y - 1))
-            }
-        case .none:
-            return [(0,0), (1,1),  (2, 2)]
-        }
-        if areValidSpots(coos: c){ return c}
-        else{return SetPosition()}
-        
-    }
-     func SetOrientation()->Orientation{
-         let i = Int.random(in: 0...7)
-         
-         if i == 0{
-             return .Right
-         }
-         else if i == 1{
-             return .Down
-         }
-         else if i == 2{
-             return .Left
-         }
-         else if i == 3{
-             return .Up;
-         }
-         else if i == 4{
-             return .DownLeft
-         }
-         else if i == 5{
-             return .DownRight
-         }
-         else if i == 6{
-             return .UpLeft
-         }
-         else{
-             return .UpRight
-         }
-     }
-    
-    
-    
-    
-    func areValidSpots()->Bool{
-           for co in coords!{
-            var i = 0
-               for w in Settings.Words{
-                   var j = 0
-                   for wc in w.coords!{
-                    if co == wc && Letters[i] != w.Letters[j]{
-                           return false
-                       }
-                    j+=1
-                   }
-               }
-            i+=1
-           }
-           return true
-    }
-    func areValidSpots(coos:[(Int, Int)])->Bool{
-        
-           for co in coos{
-            var i = 0
-               for w in Settings.Words{
-                   var j = 0
-                   for wc in w.coords!{
-                    if co == wc && Letters[i] != w.Letters[j]{
-                           return false
-                       }
-                    j+=1
-                   }
-               }
-            i+=1
-           }
-           return true
-       }
 }
 

@@ -14,11 +14,12 @@ struct ContentView: View {
     var body: some View {
         VStack {
             WordGrid(wordsearch: wordsearch)
-            List(Settings.Words, id:\.id) { word in
-                Text(word.Text!)
-            }
+            ForEach(Settings.Words, id: \.id) { word in
+                Text("\(word.id): \(word.Text!)")
+                }
         }
     }
+    
 }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -34,13 +35,12 @@ struct WordGrid: View {
                     ForEach(0..<Settings.Y, id: \.self){ row in
                         ZStack {
                             RoundedRectangle(cornerRadius: 10.0)
-                                .foregroundColor(.red)
+                                .foregroundColor(.white)
                                 .frame(width: 21, height: 15, alignment: .bottom)
-                            
-                            Text(String(self.wordsearch.Board[row][column]))
+                            Text(String(self.wordsearch.Board[row][column].Letter).capitalized)
                                 .font(Font.custom("Courier New", size: 15.0))
                                 .fontWeight(.bold)
-                                .foregroundColor(Color.white)
+                                .foregroundColor(Color.black)
                         }
                     }
                 }

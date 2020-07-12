@@ -8,13 +8,13 @@
 
 import Foundation
 
-//words should be reworked. much of their information is generated based on other instances of their structs via the Settings keeping the list of words
-//I think they should only hold data and not mutate themselves
 
 
 
 struct Word{
-    var id:Int = 0
+    
+    
+    var id:Int = 1
     var Text:String?
     var Letters:[Character] {
         var letters:[Character] = []
@@ -29,12 +29,17 @@ struct Word{
     
     init(word:String){
         Text = word
+        GetID()
         orientation = SetOrientation()
         coords = SetPosition()
         
     }
-    init(word:String, x:Int?, y:Int?, o:Orientation?){
-        
+    mutating func GetID(){
+        for word in Settings.Words{
+            if word.id >= id{
+                id = word.id + 1
+            }
+        }
     }
     func SetPosition()->[(Int, Int)]{
         var c:[(x:Int, y:Int)] = []
