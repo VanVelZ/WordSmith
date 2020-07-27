@@ -8,6 +8,10 @@
 
 import Foundation
 
+
+
+
+
 struct WordSearch{
     var Board: [[(Letter:Character, WordID:Int)]] = [[]]
     
