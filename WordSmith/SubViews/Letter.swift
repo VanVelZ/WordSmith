@@ -60,18 +60,12 @@ struct Letter:View{
     @State var didSelect:Bool = false
     
     var body: some View {
-        Button(action: {
-            self.didSelect = !self.didSelect
-        }) {
-            
             Text(String(Char).capitalized)
                 .font(Font.custom("Courier New", size: 15.0))
                 .fontWeight(.bold)
                 .foregroundColor(Color.black)
-        }
-        .frame(width: 20, height: 15, alignment: .bottom)
-        .padding(.all, 2)
-        .background(didSelect ? BGColor : Color.white)
+        
+        .frame(width: 25, height: 25)
     }
     
 }

@@ -13,10 +13,14 @@ struct ContentView: View {
     var wordsearch = WordSearch()
     var body: some View {
         VStack {
+            ZStack{
             WordGrid(wordsearch: wordsearch)
+            Selection()
+            }.frame(width: 60, height: 200)
+                .padding(.bottom)
             ForEach(Settings.Words, id: \.id) { word in
                 Text("\(word.id): \(word.Text!)")
-            }
+            }.padding(.top)
         }
     }
     
