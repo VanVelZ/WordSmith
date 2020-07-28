@@ -15,7 +15,6 @@ struct ContentView: View {
         VStack {
             ZStack{
             WordGrid(wordsearch: wordsearch)
-            Selection()
             }.frame(width: 60, height: 200)
                 .padding(.bottom)
             ForEach(Settings.Words, id: \.id) { word in
