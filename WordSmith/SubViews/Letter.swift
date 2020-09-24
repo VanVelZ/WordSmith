@@ -9,15 +9,18 @@
 import Foundation
 import SwiftUI
 
-struct Letter:View{
+struct Letter:View, Identifiable{
+    var id = UUID()
+    
     let Char:Character
+    let location:CGPoint
     var BGColor:Color{
         
         //there most be a better way to go about assigning random colors
         
         switch WordID{
         case 1:
-            return .white
+            return .green
         case 2:
             return .red
         case 3:
@@ -47,7 +50,7 @@ struct Letter:View{
         case 15:
             return .green
         default:
-            return .white
+            return .black
         }
     }
     var RootWord:Word?{
@@ -57,16 +60,17 @@ struct Letter:View{
         return nil
     }
     let WordID:Int
-    @State var didSelect:Bool = false
+    
     
     var body: some View {
         ZStack{
             Text(String(Char).capitalized)
-                .font(Font.custom("Courier New", size: 15.0))
+                .font(Font.custom("Courier New", size: 30.0))
                 .fontWeight(.bold)
-                .foregroundColor(Color.black)
+                .foregroundColor(BGColor)
+                .position(location)
+                .frame(width: 40, height: 40, alignment: .center)
         }
-        .frame(width: 25, height: 25)
     }
     
 }

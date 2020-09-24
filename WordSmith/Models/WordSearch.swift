@@ -67,7 +67,7 @@ struct WordSearch{
         
         for row in Board{
             for letter in row{
-                text += "\(letter)  "
+                text += "\(letter.Letter.lowercased())  "
             }
             text+="\n\n"
         }
@@ -76,18 +76,7 @@ struct WordSearch{
     }
     
     func SetupTempData(){
-        Settings.Words.append(Word(word: "BABY"))
-        Settings.Words.append(Word(word: "CHALK"))
-        Settings.Words.append(Word(word: "TACO"))
-        Settings.Words.append(Word(word: "LITTLE"))
-        Settings.Words.append(Word(word: "STARVE"))
-        Settings.Words.append(Word(word: "GENIUS"))
-        Settings.Words.append(Word(word: "COCOA"))
-        Settings.Words.append(Word(word: "ARGUE"))
-        Settings.Words.append(Word(word: "LEFT"))
-        Settings.Words.append(Word(word: "FISH"))
-        Settings.Words.append(Word(word: "JUMP"))
-        Settings.Words.append(Word(word: "BACON"))
+        Settings.Words.append(Word(word: "WordSearch"))
     }
     
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		372F16FF24D096020073E0E7 /* WordGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F16FE24D096020073E0E7 /* WordGrid.swift */; };
 		373F36E624B12E2200345C74 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373F36E524B12E2200345C74 /* Settings.swift */; };
 		373F36E824B414FE00345C74 /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373F36E724B414FE00345C74 /* Orientation.swift */; };
 		376B3FD424CF310D007EE851 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376B3FD324CF310D007EE851 /* Letter.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		372F16FE24D096020073E0E7 /* WordGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGrid.swift; sourceTree = "<group>"; };
 		373F36E524B12E2200345C74 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		373F36E724B414FE00345C74 /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
 		376B3FD324CF310D007EE851 /* Letter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		379B48CD24AC041F006A3191 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				372F16FE24D096020073E0E7 /* WordGrid.swift */,
 				379B48BD24AC0411006A3191 /* ContentView.swift */,
 				37BDA71624AD6EE400093763 /* SwiftUIView.swift */,
 			);
@@ -212,6 +215,7 @@
 				379B48D124AC0547006A3191 /* WordSearch.swift in Sources */,
 				379B48D324AC06FB006A3191 /* Word.swift in Sources */,
 				376B3FD924CF3432007EE851 /* LetterType.swift in Sources */,
+				372F16FF24D096020073E0E7 /* WordGrid.swift in Sources */,
 				379B48D524AC508C006A3191 /* SeededGenerator.swift in Sources */,
 				379B48BC24AC0411006A3191 /* SceneDelegate.swift in Sources */,
 				376B3FD424CF310D007EE851 /* Letter.swift in Sources */,

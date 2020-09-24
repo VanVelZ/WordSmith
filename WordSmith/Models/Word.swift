@@ -174,6 +174,7 @@ struct Word{
     
     
     func areValidSpots()->Bool{
+        //Bug
            for co in coords!{
             var i = 0
                for w in Settings.Words{
@@ -190,7 +191,7 @@ struct Word{
            return true
     }
     func areValidSpots(coos:[(Int, Int)])->Bool{
-        
+        //Bug
            for co in coos{
             var i = 0
                for w in Settings.Words{
