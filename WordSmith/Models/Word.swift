@@ -73,9 +73,9 @@ struct Word{
                 c.append((c[i].x - 1, c[i].y))
             }
         case .UpRight:
-            c.append((Int.random(in: Length..<Settings.X), Int.random(in: 0..<Settings.Y-Length)))
+            c.append((Int.random(in: 0..<Settings.X-Length), Int.random(in: Length..<Settings.Y)))
             for i in 0..<Length-1{
-                c.append((c[i].x - 1, c[i].y + 1))
+                c.append((c[i].x + 1, c[i].y - 1))
             }
         case .UpLeft:
             c.append((Int.random(in: Length..<Settings.X), Int.random(in: Length..<Settings.Y)))
@@ -88,9 +88,9 @@ struct Word{
                 c.append((c[i].x + 1, c[i].y + 1))
             }
         case .DownLeft:
-            c.append((Int.random(in: 0..<Settings.X-Length), Int.random(in: Length..<Settings.Y)))
+            c.append((Int.random(in: Length..<Settings.X), Int.random(in: 0..<Settings.Y-Length)))
             for i in 0..<Length-1{
-                c.append((c[i].x + 1, c[i].y - 1))
+                c.append((c[i].x - 1, c[i].y + 1))
             }
         case .none:
             return SetPosition()

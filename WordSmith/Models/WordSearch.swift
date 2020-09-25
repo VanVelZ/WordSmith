@@ -76,7 +76,10 @@ struct WordSearch{
     }
     
     func SetupTempData(){
-        Settings.Words.append(Word(word: "WordSearch"))
+        Settings.Words.append(Word(word: "Wordsmith"))
+        Settings.Words.append(Word(word: "Swift"))
+        Settings.Words.append(Word(word: "xcode"))
+        Settings.Words.append(Word(word: "program"))
     }
     
 }
