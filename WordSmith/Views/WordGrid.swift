@@ -12,7 +12,19 @@ struct WordGrid: View {
     let wordsearch:WordSearch
     var color:Color = .white
     
-  
+    @State private var gestureStart:CGPoint = CGPoint.zero
+    @State private var gestureCurrent:CGPoint = CGPoint.zero
+    @State private var gestureEndt:CGPoint = CGPoint.zero
+    
+    var menuDrag : some Gesture{
+        DragGesture()
+            .onChanged({ value in
+                gestureStart = value.startLocation
+                gestureCurrent = value.location
+                
+                
+        })
+    }
     
     var letters:[Letter]{
         var l:[Letter] = []
@@ -30,14 +42,16 @@ struct WordGrid: View {
     }
     
     var body: some View {
-        
+        ZStack{
+            menu()
+                
         ForEach(letters){ letter in
             letter
         }
         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
         .frame(width: .infinity, height: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
     }
-    
+    }
 }
 
 struct WordGrid_Previews: PreviewProvider {

@@ -13,7 +13,7 @@
 		376B3FD424CF310D007EE851 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376B3FD324CF310D007EE851 /* Letter.swift */; };
 		376B3FD924CF3432007EE851 /* LetterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376B3FD824CF3432007EE851 /* LetterType.swift */; };
 		376B3FFB24CF8FCC007EE851 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376B3FFA24CF8FCC007EE851 /* Selection.swift */; };
-		3791CA07251E27C9001E64E2 /* WordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3791CA06251E27C9001E64E2 /* WordCard.swift */; };
+		3791CA07251E27C9001E64E2 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3791CA06251E27C9001E64E2 /* Menu.swift */; };
 		379B48BA24AC0411006A3191 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B48B924AC0411006A3191 /* AppDelegate.swift */; };
 		379B48BC24AC0411006A3191 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B48BB24AC0411006A3191 /* SceneDelegate.swift */; };
 		379B48BE24AC0411006A3191 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B48BD24AC0411006A3191 /* ContentView.swift */; };
@@ -33,7 +33,7 @@
 		376B3FD324CF310D007EE851 /* Letter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
 		376B3FD824CF3432007EE851 /* LetterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterType.swift; sourceTree = "<group>"; };
 		376B3FFA24CF8FCC007EE851 /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
-		3791CA06251E27C9001E64E2 /* WordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCard.swift; sourceTree = "<group>"; };
+		3791CA06251E27C9001E64E2 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		379B48B624AC0411006A3191 /* WordSmith.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordSmith.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		379B48B924AC0411006A3191 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		379B48BB24AC0411006A3191 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 			children = (
 				376B3FD324CF310D007EE851 /* Letter.swift */,
 				376B3FFA24CF8FCC007EE851 /* Selection.swift */,
-				3791CA06251E27C9001E64E2 /* WordCard.swift */,
+				3791CA06251E27C9001E64E2 /* Menu.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -214,7 +214,7 @@
 				376B3FFB24CF8FCC007EE851 /* Selection.swift in Sources */,
 				379B48BA24AC0411006A3191 /* AppDelegate.swift in Sources */,
 				37BDA71724AD6EE400093763 /* SwiftUIView.swift in Sources */,
-				3791CA07251E27C9001E64E2 /* WordCard.swift in Sources */,
+				3791CA07251E27C9001E64E2 /* Menu.swift in Sources */,
 				373F36E624B12E2200345C74 /* Settings.swift in Sources */,
 				379B48D124AC0547006A3191 /* WordSearch.swift in Sources */,
 				379B48D324AC06FB006A3191 /* Word.swift in Sources */,

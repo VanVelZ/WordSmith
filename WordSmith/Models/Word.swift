@@ -11,7 +11,7 @@ import Foundation
 
 
 
-struct Word{
+struct Word:Identifiable{
     
     
     var id:Int = 1
