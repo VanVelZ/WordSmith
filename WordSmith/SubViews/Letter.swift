@@ -16,8 +16,11 @@ enum Visibility {
 }
 
 
-struct Letter:View, Identifiable{
-    var id = UUID()
+struct Letter:View, Identifiable, Equatable, Hashable{
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    let id:UUID
     
     let Char:Character
     let location:CGPoint

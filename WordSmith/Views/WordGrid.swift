@@ -30,7 +30,8 @@ struct WordGrid: View {
             })
     }
     func isWordSelected(){
-        let selectId = selectedLetters[1].WordID
+        if(selectedLetters.count > 0){
+        let selectId = selectedLetters[0].WordID
         
         for word in Settings.Words{
             if word.id == selectId{
@@ -40,22 +41,25 @@ struct WordGrid: View {
                         return
                     }
                     else{
-                        foundLetters.append(Letter(Char: letter.Char, location: letter.location, letterVisibility: .found, WordID: letter.WordID))
+                        foundLetters.append(Letter(id: letter.id, Char: letter.Char, location: letter.location, letterVisibility: .found, WordID: letter.WordID))
                     }
                 }
             }
         }
-        
+        }
     }
     func CheckForLetter(position:CGPoint){
         for letter in letters {
-            let topleft = CGPoint(x: letter.location.x - 20, y: letter.location.y - 20)
-            let bottomright = CGPoint(x: letter.location.x + 20, y: letter.location.y + 20)
+            let topleft = CGPoint(x: letter.location.x - 20, y: letter.location.y - 10)
+            let bottomright = CGPoint(x: letter.location.x + 20, y: letter.location.y + 10)
             if(gestureCurrent.x > topleft.x &&
                 gestureCurrent.x < bottomright.x &&
                 gestureCurrent.y > topleft.y &&
                 gestureCurrent.y < bottomright.y){
-                selectedLetters.append(Letter(Char: letter.Char, location: letter.location, letterVisibility: .selected, WordID: letter.WordID))
+                let newLetter = Letter(id: letter.id, Char: letter.Char, location: letter.location, letterVisibility: .selected, WordID: letter.WordID)
+                if(!selectedLetters.contains(newLetter)){
+                    selectedLetters.append(newLetter)
+                }
             }
         }
         
@@ -65,14 +69,14 @@ struct WordGrid: View {
     var letters:[Letter]{
         var l:[Letter] = []
         
-        var lLocation = CGPoint(x: -160, y: -150)
+        var lLocation = CGPoint(x: -150, y: -150)
         for row in 0..<Settings.X{
             for column in 0..<Settings.Y{
-                l.append(Letter(Char: self.wordsearch.Board[row][column].Letter, location: lLocation, letterVisibility: .hidden, WordID: self.wordsearch.Board[row][column].WordID))
-                lLocation.y = lLocation.y + 40;
+                l.append(Letter(id: UUID(), Char: self.wordsearch.Board[row][column].Letter, location: lLocation, letterVisibility: .hidden, WordID: self.wordsearch.Board[row][column].WordID))
+                lLocation.y = lLocation.y + 38;
             }
             lLocation.y = -150
-            lLocation.x = lLocation.x + 40
+            lLocation.x = lLocation.x + 38
         }
         return l
     }
@@ -91,7 +95,7 @@ struct WordGrid: View {
             ForEach(foundLetters){ letter in
                 letter
             }
-            Text("\(gestureCurrent.x), \(gestureCurrent.y)")
+            Text("\(gestureCurrent.x), \(gestureCurrent.y), \(selectedLetters.count)")
                 .position(CGPoint(x: 200, y: 0))
         }.gesture(selectDrag)
     }

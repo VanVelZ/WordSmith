@@ -21,7 +21,7 @@ struct menu: View {
     
     
     
-    let smallPosition = CGPoint(x: 203, y: -200)
+    let smallPosition = CGPoint(x: 210, y: -200)
     let mediumPosition = CGPoint(x: 207, y: -400)
     let largePosition = CGPoint(x: 207, y: -1000)
     
@@ -40,7 +40,7 @@ struct menu: View {
         }
         .position(smallPosition)
         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-        .frame(width: 405, height: 200)
+        .frame(width: 400, height: 245)
         
     }
 }
@@ -56,7 +56,7 @@ struct CardView: View {
     var body: some View {
         ZStack{
             WordList()
-                .frame(width: 405, height: 200)
+                .frame(width: 380, height: 180)
                 .background(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
                                 .fill(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.blue]), startPoint: .top, endPoint: .bottom)))
         }
@@ -65,7 +65,7 @@ struct CardView: View {
 
 struct WordList: View {
     
-    var displayWords:String = ""
+    var displayWords:String = "\n"
     
     init(){
         for word in Settings.Words {
