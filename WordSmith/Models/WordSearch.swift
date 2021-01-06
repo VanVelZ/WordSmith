@@ -12,17 +12,15 @@ import Foundation
 
 
 
-struct WordSearch{
+class WordSearch{
     var Board: [[(Letter:Character, WordID:Int)]] = [[]]
     
     init(){
-        SetupBoardArray()
         SetupTempData()
-        AddWordsToBoard()
     }
     
     
-    mutating func SetupBoardArray(){
+    func SetupBoardArray(){
         
         Board.removeAll()
         var row:[(Character,Int)] = []
@@ -34,7 +32,7 @@ struct WordSearch{
             Board.append(row)
         }
     }
-    mutating func SetupBoardArrayTest(){
+    func SetupBoardArrayTest(){
         
         Board.removeAll()
         var row:[(Character, Int)] = []
@@ -46,7 +44,7 @@ struct WordSearch{
             Board.append(row)
         }
     }
-    mutating func AddWordsToBoard(){
+    func AddWordsToBoard(){
         
         for word in Settings.Words{
             var i = 0

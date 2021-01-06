@@ -11,7 +11,7 @@ import Foundation
 
 
 
-struct Word:Identifiable{
+class Word:Identifiable{
     
     
     var id:Int = 1
@@ -29,18 +29,11 @@ struct Word:Identifiable{
     
     init(word:String){
         Text = word
-        GetID()
         orientation = SetOrientation()
         coords = SetPosition()
         
     }
-    mutating func GetID(){
-        for word in Settings.Words{
-            if word.id >= id{
-                id = word.id + 1
-            }
-        }
-    }
+    //must fix the index out of bounds error
     func SetPosition()->[(Int, Int)]{
         var c:[(x:Int, y:Int)] = []
         switch orientation{
