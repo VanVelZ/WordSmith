@@ -34,6 +34,10 @@ class Word:Identifiable{
         
     }
     //must fix the index out of bounds error
+    
+    
+    
+    
     func SetPosition()->[(Int, Int)]{
         var c:[(x:Int, y:Int)] = []
         switch orientation{

@@ -10,15 +10,12 @@ import SwiftUI
 import Foundation
 
 struct ContentView: View {
-    @State private var wordsearch = WordSearch()
-    init() {
-        wordsearch.SetupBoardArray()
-    }
     var body: some View {
-        Text(wordsearch.Display)
+        HStack{
+        }
+    }
     }
     
-}
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

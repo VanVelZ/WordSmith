@@ -8,8 +8,4 @@
 
 import Foundation
 
-class Settings{
-    static var X:Int = 10
-    static var Y:Int = 12
-    static var Words:[Word] = []
-    }
+
