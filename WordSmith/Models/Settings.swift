@@ -8,4 +8,9 @@
 
 import Foundation
 
+struct Settings{
+    private(set) var size:(x: Int, y: Int) = (10, 12)
+    var Words:[Word] = []
+    
+    }
 

@@ -10,52 +10,41 @@ import Foundation
 
 
 
-class Settings{
-    static var X:Int = 10
-    static var Y:Int = 12
-    static var Words:[Word] = []
-    }
-
 
 class WordSearch{
-    var Board: [[(Letter:Character, WordID:Int)]] = [[]]
-    
-    
-    init(){
-        SetupTempData()
-    }
-    
+    private(set) var board: [[Character]] = [[]]
+    private(set) var settings: Settings = Settings()
     
     func SetupBoardArray(){
         
-        Board.removeAll()
-        var row:[(Character,Int)] = []
-        for _ in 0..<Settings.X{
+        board.removeAll()
+        var row:[Character] = []
+        for _ in 0..<settings.size.x{
             row.removeAll()
-            for _  in 0..<Settings.Y{
-                row.append((RandomLetterTemp(), 0))
+            for _  in 0..<settings.size.y{
+                row.append(RandomLetterTemp())
             }
-            Board.append(row)
+            board.append(row)
         }
     }
     func SetupBoardArrayTest(){
         
-        Board.removeAll()
-        var row:[(Character, Int)] = []
-        for _ in 0..<Settings.X{
+        board.removeAll()
+        var row:[Character] = []
+        for _ in 0..<settings.size.x{
             row.removeAll()
-            for _  in 0..<Settings.Y{
-                row.append(("+", 0))
+            for _  in 0..<settings.size.y{
+                row.append("+")
             }
-            Board.append(row)
+            board.append(row)
         }
     }
     func AddWordsToBoard(){
         
-        for word in Settings.Words{
+        for word in settings.Words{
             var i = 0
-            for letter in word.Letters{
-                Board[word.coords![i].X][word.coords![i].Y] = (letter, word.id)
+            for letter in word.text{
+                board[word.coords![i].X][word.coords![i].Y] = letter
                 i+=1
             }
         }
@@ -69,21 +58,14 @@ class WordSearch{
     var Display: String {
         var text:String = ""
         
-        for row in Board{
+        for row in board{
             for letter in row{
-                text += "\(letter.Letter.lowercased())  "
+                text += "\(letter.lowercased())  "
             }
             text+="\n\n"
         }
         return text
         
-    }
-    
-    func SetupTempData(){
-        Settings.Words.append(Word(word: "Wordsmith"))
-        Settings.Words.append(Word(word: "Swift"))
-        Settings.Words.append(Word(word: "xcode"))
-        Settings.Words.append(Word(word: "program"))
     }
     
 }

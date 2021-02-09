@@ -19,6 +19,8 @@
 		379B48C624AC0412006A3191 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379B48C424AC0412006A3191 /* LaunchScreen.storyboard */; };
 		379B48D124AC0547006A3191 /* WordSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B48D024AC0547006A3191 /* WordSearch.swift */; };
 		379B48D324AC06FB006A3191 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B48D224AC06FB006A3191 /* Word.swift */; };
+		37ECACD625D34C5A00EABEE4 /* WordSmithExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ECACD525D34C5A00EABEE4 /* WordSmithExtensions.swift */; };
+		37ECACDA25D3529200EABEE4 /* BoardSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ECACD925D3529200EABEE4 /* BoardSpace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		379B48C724AC0412006A3191 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		379B48D024AC0547006A3191 /* WordSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearch.swift; sourceTree = "<group>"; };
 		379B48D224AC06FB006A3191 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		37ECACD525D34C5A00EABEE4 /* WordSmithExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSmithExtensions.swift; sourceTree = "<group>"; };
+		37ECACD925D3529200EABEE4 /* BoardSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSpace.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 		379B48B824AC0411006A3191 /* WordSmith */ = {
 			isa = PBXGroup;
 			children = (
+				37ECACD425D34C4700EABEE4 /* Extensions */,
 				379B48CD24AC041F006A3191 /* Views */,
 				3724F36125AA861F00804493 /* ViewModel */,
 				379B48CE24AC0431006A3191 /* Models */,
@@ -113,8 +118,17 @@
 				379B48D024AC0547006A3191 /* WordSearch.swift */,
 				379B48D224AC06FB006A3191 /* Word.swift */,
 				373F36E724B414FE00345C74 /* Orientation.swift */,
+				37ECACD925D3529200EABEE4 /* BoardSpace.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		37ECACD425D34C4700EABEE4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				37ECACD525D34C5A00EABEE4 /* WordSmithExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37ECACD625D34C5A00EABEE4 /* WordSmithExtensions.swift in Sources */,
 				379B48BA24AC0411006A3191 /* AppDelegate.swift in Sources */,
 				379B48D124AC0547006A3191 /* WordSearch.swift in Sources */,
 				379B48D324AC06FB006A3191 /* Word.swift in Sources */,
@@ -195,6 +210,7 @@
 				373DE56425A5691000C99B04 /* Settings.swift in Sources */,
 				373F36E824B414FE00345C74 /* Orientation.swift in Sources */,
 				3724F36325AA863700804493 /* GridLayout.swift in Sources */,
+				37ECACDA25D3529200EABEE4 /* BoardSpace.swift in Sources */,
 				379B48BE24AC0411006A3191 /* ContentView.swift in Sources */,
 				3724F35B25AA84D800804493 /* Grid.swift in Sources */,
 			);

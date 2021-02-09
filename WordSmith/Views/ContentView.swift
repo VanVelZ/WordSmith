@@ -10,9 +10,9 @@ import SwiftUI
 import Foundation
 
 struct ContentView: View {
+    var wordsearch: WordSearch = WordSearch()
     var body: some View {
-        HStack{
-        }
+        Text(wordsearch.Display)
     }
     }
     
